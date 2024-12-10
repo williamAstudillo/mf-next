@@ -1,7 +1,11 @@
-import type { NextConfig } from "next";
+import { variables } from "app/sass/variables";
+import { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  sassOptions: {
+    additionalData: variables,
+  },
+  output: "export",
 };
 
 export default nextConfig;
