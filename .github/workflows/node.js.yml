@@ -27,6 +27,8 @@ jobs:
           cache: "npm"
       - run: npm install
       - run: npm run build
+      - name: List files before uploading artifacts
+        run: ls -R out/
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -42,6 +44,9 @@ jobs:
         with:
           name: node-app
           path: out/
+
+      - name: List artifacts to upload
+        run: ls -R out/
 
       - uses: actions/checkout@v4
       - uses: jakejarvis/s3-sync-action@master
