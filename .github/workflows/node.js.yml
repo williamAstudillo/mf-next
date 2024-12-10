@@ -46,7 +46,7 @@ jobs:
           path: public/
 
       - name: List artifacts to upload
-        run: ls -R out/
+        run: ls -R public/
 
       - uses: actions/checkout@v4
       - uses: jakejarvis/s3-sync-action@master
