@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
   },
   output: "export",
   images: { unoptimized: true },
+  basePath: "/mf1",
 };
 
 export default nextConfig;
