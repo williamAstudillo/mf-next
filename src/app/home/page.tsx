@@ -1,18 +1,25 @@
+"use client";
+import { useState } from "react";
 import Image from "next/image";
 
-export default function home() {
+const Home = () => {
+  const [isbuttonshow, setisbuttonshow] = useState<boolean>(false);
   return (
     <div>
       ruta home
+      <button onClick={() => setisbuttonshow(false)}>Clic here</button>
       <figure>
-        <Image
-          src="/images/description.jpeg"
-          alt="imagen"
-          width={300}
-          height={300}
-          quality={100}
+        {isbuttonshow && (
+          <Image
+            src="/images/description.jpeg"
+            alt="imagen"
+            width={300}
+            height={300}
+            quality={100}
           />
-        </figure>
+        )}
+      </figure>
     </div>
   );
-}
+};
+export default Home;
