@@ -26,13 +26,13 @@ export default function RootLayout({
             <Link href="/">Home</Link>
           </li>
           <li>
-            <Link href="/mf1/store">Categorias</Link>
+            <Link href="/store">Categorias</Link>
           </li>
           <li>
-            <Link href="/mf1/home">Home ruta </Link>
+            <Link href="/home">Home ruta </Link>
           </li>
           <li>
-            <Link href="/mf1/products">products ruta </Link>
+            <Link href="/products">products ruta </Link>
           </li>
         </ul>
         {children}
