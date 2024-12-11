@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
     additionalData: variables,
   },
   output: "export",
+  images: { unoptimized: true },
 };
 
 export default nextConfig;

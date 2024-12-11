@@ -31,6 +31,9 @@ export default function RootLayout({
           <li>
             <Link href="/home">Home ruta </Link>
           </li>
+          <li>
+            <Link href="/products">products ruta </Link>
+          </li>
         </ul>
         {children}
       </body>
