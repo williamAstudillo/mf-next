@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <div>
       ruta home
-      <button onClick={() => setisbuttonshow(false)}>Clic here</button>
+      <button onClick={() => setisbuttonshow(true)}>Clic here</button>
       <figure>
         {isbuttonshow && (
           <Image
