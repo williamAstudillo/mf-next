@@ -10,13 +10,21 @@ const Home = () => {
       <button onClick={() => setisbuttonshow(true)}>Clic here</button>
       <figure>
         {isbuttonshow && (
-          <Image
-            src="/images/description.jpeg"
-            alt="imagen"
-            width={300}
-            height={300}
-            quality={100}
-          />
+          <>
+            <Image
+              src="/images/description.jpeg"
+              alt="imagen"
+              width={300}
+              height={300}
+              quality={100}
+            />
+            <img
+              src="/images/description.jpeg"
+              alt="asdasd"
+              width={300}
+              height={300}
+            />
+          </>
         )}
       </figure>
     </div>
