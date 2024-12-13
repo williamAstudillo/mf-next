@@ -6,7 +6,7 @@ export default function Home() {
       <main className={styles.main}>
         soy el microfront de home
         <a href="/mf1">go to MF1</a>
-        asdasdsdddss
+        asdasdsdddssdsds
       </main>
     </div>
   );
