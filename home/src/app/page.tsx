@@ -1,13 +1,10 @@
-import styles from "./page.module.css";
+import HomeScreen from "./components/screens/HomeScreen";
 
-export default function Home() {
+const Home = () => {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        soy el microfront de home
-        <a href="/mf1">go to MF1</a>
-        asdasdsdddssdsdssds
-      </main>
+    <div>
+      <HomeScreen />
     </div>
   );
-}
+};
+export default Home;
