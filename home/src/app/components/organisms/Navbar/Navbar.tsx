@@ -2,7 +2,8 @@
 import React, { useState } from "react";
 import styles from "./Navbar.module.sass";
 import Image from "next/image";
-import Button from "app/components/atoms/Button";
+import Button from "app/components/atoms/Button/Button";
+import useStore from "app/store/useStore";
 
 interface NavbarProps {
   handleSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -10,6 +11,7 @@ interface NavbarProps {
 function Navbar({ handleSearchChange }: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const { cart } = useStore();
 
   return (
     <>
@@ -82,7 +84,11 @@ function Navbar({ handleSearchChange }: NavbarProps) {
             <span>Mi Cuenta</span>
           </button>
           <div className={styles.navbar__button_cart}>
-            <Button text="Carrito" isAddToCart={false} />
+            <Button text="Carrito" onClick={() => {}}>
+              <span className={styles.navbar__button_counter}>
+                {cart.length}
+              </span>
+            </Button>
           </div>
         </div>
       </nav>

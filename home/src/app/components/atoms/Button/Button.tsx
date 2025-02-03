@@ -1,26 +1,36 @@
 import Image from "next/image";
 import React from "react";
 import styles from "./Button.module.sass";
-import useStore from "app/store/useStore";
 import { Product } from "app/modules/product/domain/product";
 
 interface ButtonProps {
   text: string;
-  isAddToCart: boolean;
-  product?: Product;
+  onClick: () => void;
+  children?: React.ReactNode;
 }
 
-function Button({ text, isAddToCart, product }: ButtonProps) {
-  const { cart, addToCart, decreaseQuantity, addQuantity, removeFromCart } =
-    useStore();
+function Button({ text, onClick, children }: ButtonProps) {
+  // if (!isAddToCart) {
+  //   return (
+  //     <button className={styles.button}>
+  //       <Image
+  //         className={styles.button__icon}
+  //         src="shopping-cart.svg"
+  //         width={20}
+  //         height={20}
+  //         alt="Carrito de compras"
+  //       />
+  //       <span>{text}</span>
+  //       {!isAddToCart && (
+  //         <span className={styles.button__counter}>{cart.length}</span>
+  //       )}
+  //     </button>
+  //   );
+  // }
 
-  const productFound = cart.find(
-    (productCart) => productCart?.id === product?.id
-  );
-
-  if (!isAddToCart) {
-    return (
-      <button className={styles.button}>
+  return (
+    <>
+      <button className={styles.button} onClick={onClick}>
         <Image
           className={styles.button__icon}
           src="shopping-cart.svg"
@@ -29,29 +39,9 @@ function Button({ text, isAddToCart, product }: ButtonProps) {
           alt="Carrito de compras"
         />
         <span>{text}</span>
-        {!isAddToCart && (
-          <span className={styles.button__counter}>{cart.length}</span>
-        )}
+        {children}
       </button>
-    );
-  }
-
-  return (
-    <>
-      {!productFound?.quantity ? (
-        <button
-          className={styles.button}
-          onClick={() => product && addToCart(product)}
-        >
-          <Image
-            className={styles.button__icon}
-            src="shopping-cart.svg"
-            width={20}
-            height={20}
-            alt="Carrito de compras"
-          />
-          <span>{text}</span>
-        </button>
+      {/* {!productFound?.quantity ? (
       ) : (
         <div className={styles.quantity_container}>
           <div className={styles.quantity_controls}>
@@ -87,7 +77,7 @@ function Button({ text, isAddToCart, product }: ButtonProps) {
             />
           </button>
         </div>
-      )}
+      )} */}
     </>
   );
 }

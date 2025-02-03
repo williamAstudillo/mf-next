@@ -1,5 +1,6 @@
 import React from "react";
-import Card from "../../molecules/Card";
+//TODO refactor imports
+import Card from "app/components/molecules/Card/Card";
 import styles from "./ProductsGrid.module.sass";
 import { Product } from "app/modules/product/domain/product";
 

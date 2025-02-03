@@ -1,11 +1,17 @@
 import React from "react";
-import Button from "app/components/atoms/Button";
 import Image from "next/image";
 import styles from "./Card.module.sass";
 import { Product } from "app/modules/product/domain/product";
 import { SanitizeHTML } from "app/shared/sanitizeHtml/sanitizeHTML";
+import CartButton from "app/components/atoms/CartButton/CartButton";
+import useStore from "app/store/useStore";
 
 function Card({ product }: { product: Product }) {
+  const { cart, addToCart, decreaseQuantity, addQuantity, removeFromCart } =
+    useStore();
+  const productFoundQuantity = cart.find(
+    (productCart) => productCart?.id === product?.id
+  );
   return (
     <article className={styles.card}>
       <section className={styles.card__product}>
@@ -31,7 +37,14 @@ function Card({ product }: { product: Product }) {
               </span>
             </div>
           </div>
-          <Button text="Añadir al Carrito" isAddToCart product={product} />
+          <CartButton
+            addQuantity={addQuantity}
+            decreaseQuantity={decreaseQuantity}
+            product={product}
+            quantity={productFoundQuantity?.quantity || 0}
+            removeFromCart={removeFromCart}
+            addToCart={addToCart}
+          />
         </div>
       </section>
     </article>
